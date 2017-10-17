@@ -1,0 +1,24 @@
+﻿.createAlbumDiv {
+    height: 100px;
+    margin-bottom:5px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#NotJoinedPic {
+    border: dotted 2px;
+    min-height: 75vh;
+}
+#JoinedPic {
+    border: dotted 2px;
+    border-left:inherit;
+    min-height: 75vh;
+}
+.Active {
+    background: rgba(255, 0, 0, 0.16);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
