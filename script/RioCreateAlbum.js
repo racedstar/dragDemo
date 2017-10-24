@@ -20,7 +20,10 @@ var dragPhoto = function (sourceID,ev) {
         else {
             if (data) {
                 document.getElementById(ev.target.id).appendChild(document.getElementById(data));
-                $('#' + event.target.id).before(document.getElementById(data));
+                if(ev.target.id != "NotJoinedPic" && ev.target.id != "JoinedPic"){
+                    $('#' + event.target.id).before(document.getElementById(data));
+                }
+                console.log(event.target.id);
                 if (ev.target.id === "NotJoinedPic") {
                     checkIsFrontCover(data);//確認取消的圖片不是封面，若是封面就將封面清空
                 }
@@ -76,6 +79,9 @@ var multiImg = function (ev,divID) {
     for (j = 0; j < Addimg.length; j++) {
         var data = Addimg[j];
         document.getElementById(divID).appendChild(document.getElementById(data));
+        if(ev.target.id != "NotJoinedPic" && ev.target.id != "JoinedPic"){
+            $('#' + event.target.id).before(document.getElementById(data));
+        }
         document.getElementById(data).className = "col-md-3 text-center createAlbumDiv";
     }
 }
