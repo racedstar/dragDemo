@@ -5,16 +5,17 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+    cursor:pointer;
 }
 
 #NotJoinedPic {
     border: dotted 2px;
-    min-height: 75vh;
+    height: 75vh;
 }
 #JoinedPic {
     border: dotted 2px;
     border-left:inherit;
-    min-height: 75vh;
+    height: 75vh;
 }
 .Active {
     background: rgba(255, 0, 0, 0.16);
