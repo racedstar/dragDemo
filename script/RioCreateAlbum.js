@@ -10,18 +10,20 @@ var drag = function (ev) {
 }
 
 //將圖片新增到相簿
-var dragPhoto = function (targetID,ev) {
+var dragPhoto = function (sourceID,ev) {
     var data = ev.dataTransfer.getData("Text");
-    console.log(targetID);
-    ev.preventDefault();
-    if (document.getElementsByClassName("Active").length !== 0) {//一次拖拉多檔
-        multiImg(ev, targetID);
-    }
-    else {
-        if (data) {
-            document.getElementById(targetID).appendChild(document.getElementById(data));
-            if (targetID === "NotJoinedPic") {
-                checkIsFrontCover(data);//確認取消的圖片不是封面，若是封面就將封面清空
+    if(sourceID != ev.target.id){
+        ev.preventDefault();
+        if (document.getElementsByClassName("Active").length !== 0) {//一次拖拉多檔
+            multiImg(ev, ev.target.id);
+        }
+        else {
+            if (data) {
+                document.getElementById(ev.target.id).appendChild(document.getElementById(data));
+                $('#' + event.target.id).before(document.getElementById(data));
+                if (ev.target.id === "NotJoinedPic") {
+                    checkIsFrontCover(data);//確認取消的圖片不是封面，若是封面就將封面清空
+                }
             }
         }
     }
